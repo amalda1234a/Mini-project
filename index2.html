@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<style>
+    .imag {
+        height: 250px;
+        width: 270px;
+        margin: 70px;
+    }
+    .bt1{
+        color: cadetblue;
+        background-color:darkgreen;
+        margin-left: 7px;
+    }
+    .bt2{
+        color: cadetblue;
+        background-color:green;
+        margin-left: 7px;
+    }
+    .bt3{
+        color: cadetblue;
+        background-color:rgb(10, 44, 56) ;
+        
+        margin-top: 10px;
+        
+    }
+</style>
+
+<body>
+    <div style="height: 130px;background: rgb(10, 44, 56);">
+        <h2 style="color: cadetblue;">My cart(1)</h2>
+        
+        <p style="float: right;color: cadetblue;font-size: 14px;"><i class="fa-solid fa-location-dot"> Deliver to -
+                Ernakulam</i></p>
+        <p style="color: cadetblue;font-size: 14px;">Get delivery in two days,18 jul</p>
+        <button type="button" class="bt3"> <i class="fa-regular fa-heart"></i> My Wishlist</button>
+    </div>
+    <div style="height: 690px; background-color: cadetblue ;">
+        <br><br>
+        <div style="width: 1190px; height: 600px; background-color: rgb(10, 44, 56);margin-left: 30px;">
+            <h3 style="color: cadetblue;margin-top: -10px;">Total number of items: 1</h3>
+            <h3 style="color: cadetblue;margin-top: 20px;float: right;margin-right: 10px; margin-top: -40px;">Total amount: $100 </h3>
+            
+            <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MME73?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1632861342000"
+                class="imag">
+            <div
+                style="height: 250px;width: 580px;background-color: white;float:left;margin-left: 350px;margin-top: -323px;">
+                <h2>Apple</h2>
+                <h4>AirPods (3rd Generation) Wireless Ear Buds, Bluetooth Headphones, Personalized Spatial Audio, Sweat
+                    and
+                    Water..</h4>
+                
+                <div style="color: cadetblue;">$108.99     10%off</div><br>
+                
+                <div style="display: flex;">
+                <button type="button" style="height: 20px;" onclick="operation('+')">+</button>
+                <h6 id="qty" style="margin-top: 2px;">1</h6>
+                <button type="button" style="height: 20px;" onclick="operation('-')">-</button>
+            </div>
+                <br>
+                <button type="button" class="bt1" onclick="addToCart()">Remove</button>
+                <button type="button" class="bt1">Buy now</button>
+            </div>
+            <h3 style="color: cadetblue;margin-top: -40px; margin-left: 10px;">Price details</h3>
+            <br>
+            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;">Total MRP:         $108.99</h5>
+            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;">Saving on MRP:        -$10</h5>
+            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;">Subtotal:        $100</h5>
+            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;">Shipping and other charges:   $40</h5>
+            <button type="button" style="color: cadetblue; background-color: rgb(10, 44, 56); float: right; width: 100px;">Buy all</button>
+
+
+        </div>
+</body>
+<script>
+    // function operation(sign)
+    // {
+    // switch(sign)
+    // {
+    //     case"+":
+    //     document.getElementById("qty").innerHTML=Number(document.getElementById("qty").innerHTML) + Number(qty) +1;
+    //     console.log();
+    //     break;
+    //     case"-":
+    //     document.getElementById("qty").innerHTML=Number(qty) -1;
+    //     console.log();
+    //     default: console.log("ki")
+    // }
+    // }
+    function operation(sign) {
+    const qtyElement = document.getElementById("qty");
+    let qty = Number(qtyElement.innerHTML);
+
+    switch(sign) {
+        case "+":
+            qty += 1;
+            break;
+        case "-":
+            if (qty > 1) { // Ensure quantity doesn't go below 1
+                qty -= 1;
+            }
+            break;
+        default:
+            console.log("Invalid operation");
+    }
+
+    qtyElement.innerHTML = qty;
+}
+
+</script>
+</html>
