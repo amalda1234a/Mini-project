@@ -13,29 +13,32 @@
         width: 270px;
         margin: 70px;
     }
-    .bt1{
+
+    .bt1 {
         color: cadetblue;
-        background-color:darkgreen;
+        background-color: darkgreen;
         margin-left: 7px;
     }
-    .bt2{
+
+    .bt2 {
         color: cadetblue;
-        background-color:green;
+        background-color: green;
         margin-left: 7px;
     }
-    .bt3{
+
+    .bt3 {
         color: cadetblue;
-        background-color:rgb(10, 44, 56) ;
-        
+        background-color: rgb(10, 44, 56);
+
         margin-top: 10px;
-        
+
     }
 </style>
 
 <body>
     <div style="height: 130px;background: rgb(10, 44, 56);">
         <h2 style="color: cadetblue;">My cart(1)</h2>
-        
+
         <p style="float: right;color: cadetblue;font-size: 14px;"><i class="fa-solid fa-location-dot"> Deliver to -
                 Ernakulam</i></p>
         <p style="color: cadetblue;font-size: 14px;">Get delivery in two days,18 jul</p>
@@ -45,8 +48,9 @@
         <br><br>
         <div style="width: 1190px; height: 600px; background-color: rgb(10, 44, 56);margin-left: 30px;">
             <h3 style="color: cadetblue;margin-top: -10px;">Total number of items: 1</h3>
-            <h3 style="color: cadetblue;margin-top: 20px;float: right;margin-right: 10px; margin-top: -40px;">Total amount: $100 </h3>
-            
+            <h3 style="color: cadetblue;margin-top: 20px;float: right;margin-right: 10px; margin-top: -40px;">Total
+                amount: <i class="fa-solid fa-indian-rupee-sign"></i>1240 </h3>
+
             <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MME73?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1632861342000"
                 class="imag">
             <div
@@ -55,63 +59,81 @@
                 <h4>AirPods (3rd Generation) Wireless Ear Buds, Bluetooth Headphones, Personalized Spatial Audio, Sweat
                     and
                     Water..</h4>
-                
-                <div style="color: cadetblue;">$108.99     10%off</div><br>
-                
+
+                <div style="color: cadetblue;"> <i class="fa-solid fa-indian-rupee-sign"></i><span id="unitPrice">1200
+                    </span> <span>10%off</span></div><br>
+
                 <div style="display: flex;">
-                <button type="button" style="height: 20px;" onclick="operation('+')">+</button>
-                <h6 id="qty" style="margin-top: 2px;">1</h6>
-                <button type="button" style="height: 20px;" onclick="operation('-')">-</button>
-            </div>
+                    <button type="button" style="height: 20px;" onclick="operation('+')">+</button>
+                    <h6 id="qty" style="margin-top: 2px;">1</h6>
+                    <button type="button" style="height: 20px;" onclick="operation('-')">-</button>
+                </div>
                 <br>
                 <button type="button" class="bt1" onclick="addToCart()">Remove</button>
                 <button type="button" class="bt1">Buy now</button>
             </div>
             <h3 style="color: cadetblue;margin-top: -40px; margin-left: 10px;">Price details</h3>
             <br>
-            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;">Total MRP:         $108.99</h5>
-            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;">Saving on MRP:        -$10</h5>
-            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;">Subtotal:        $100</h5>
-            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;">Shipping and other charges:   $40</h5>
-            <button type="button" style="color: cadetblue; background-color: rgb(10, 44, 56); float: right; width: 100px;">Buy all</button>
+            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;" id="totalPrice">Total MRP: <i
+                    class="fa-solid fa-indian-rupee-sign"></i>1200</h5>
+            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;">Saving on MRP: <i
+                    class="fa-solid fa-indian-rupee-sign"></i>100</h5>
+            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;" id="subtotal" onclick="total()">Subtotal:
+                <i class="fa-solid fa-indian-rupee-sign"></i>1240
+            </h5>
+            <h5 style="color: cadetblue;margin-top: -10px; margin-left: 10px;">Shipping and other charges: <i
+                    class="fa-solid fa-indian-rupee-sign"></i>40</h5>
+            <button type="button"
+                style="color: cadetblue; background-color: rgb(10, 44, 56); float: right; width: 100px;">Buy
+                all</button>
 
 
         </div>
 </body>
 <script>
-    // function operation(sign)
-    // {
-    // switch(sign)
-    // {
-    //     case"+":
-    //     document.getElementById("qty").innerHTML=Number(document.getElementById("qty").innerHTML) + Number(qty) +1;
-    //     console.log();
-    //     break;
-    //     case"-":
-    //     document.getElementById("qty").innerHTML=Number(qty) -1;
-    //     console.log();
-    //     default: console.log("ki")
-    // }
-    // }
-    function operation(sign) {
-    const qtyElement = document.getElementById("qty");
-    let qty = Number(qtyElement.innerHTML);
 
-    switch(sign) {
-        case "+":
-            qty += 1;
-            break;
-        case "-":
-            if (qty > 1) { // Ensure quantity doesn't go below 1
-                qty -= 1;
-            }
-            break;
-        default:
-            console.log("Invalid operation");
+    function operation(sign) {
+        const qtyElement = document.getElementById("qty");
+        let qty = Number(qtyElement.innerHTML);
+
+        switch (sign) {
+            case "+":
+                qty += 1;
+                break;
+            case "-":
+                if (qty > 1) { // Ensure quantity doesn't go below 1
+                    qty -= 1;
+                }
+                break;
+            default:
+                console.log("Invalid operation");
+
+        }
+        qtyElement.innerHTML = qty;
+        updateTotalPrice(qty);
+        updateSubtotal(qty);
+
+        // qtyElement.innerHTML = qty;
+    }
+    function updateTotalPrice(qty) {
+        const unitPrice = parseFloat(document.getElementById("unitPrice").innerHTML);
+        const totalPrice = unitPrice * qty;
+        document.getElementById("totalPrice").innerHTML = `Total MRP: <i class="fa-solid fa-indian-rupee-sign"></i>${totalPrice.toFixed(2)}`;
     }
 
-    qtyElement.innerHTML = qty;
-}
+    function updateSubtotal(qty) {
+        const unitPrice = parseFloat(document.getElementById("unitPrice").innerHTML);
+        const totalPrice = unitPrice * qty;
+        const savingOnMRP = 100; // Fixed savings on MRP
+        const shippingCharges = 40; // Fixed shipping charges
+
+        const subtotal = totalPrice - savingOnMRP + shippingCharges;
+        const subtotalElement = document.getElementById("subtotal");
+        subtotalElement.innerHTML = `Subtotal: <i class="fa-solid fa-indian-rupee-sign"></i>${subtotal.toFixed(2)}`;
+    }
+
+    
 
 </script>
+
 </html>
